@@ -1,0 +1,76 @@
+media:
+  input: media
+  output: /media
+  rename: safe
+content:
+  - name: servicios
+    label: Servicios y precios
+    type: file
+    path: servicios.json
+    format: json
+    list: true
+    fields:
+      - name: nombre
+        label: Servicio
+        type: string
+        required: true
+      - name: precio
+        label: Precio en euros
+        type: number
+        required: true
+  - name: contenido
+    label: Textos y enlaces
+    type: file
+    path: contenido.json
+    format: json
+    fields:
+      - name: etiqueta_principal
+        label: Etiqueta superior
+        type: string
+      - name: titulo_principal
+        label: Título de la portada
+        type: string
+      - name: subtitulo_principal
+        label: Texto de la portada
+        type: text
+      - name: titulo_servicios
+        label: Título de servicios
+        type: string
+      - name: texto_servicios
+        label: Explicación de servicios
+        type: text
+      - name: titulo_galeria
+        label: Título de fotos
+        type: string
+      - name: texto_galeria
+        label: Explicación de fotos
+        type: text
+      - name: anuncio
+        label: Aviso o promoción
+        type: text
+      - name: horarios
+        label: Horarios
+        type: text
+      - name: booksy
+        label: Enlace de Booksy
+        type: string
+      - name: instagram
+        label: Enlace de Instagram
+        type: string
+  - name: fotografias
+    label: Fotos de la galería
+    type: file
+    path: fotografias.json
+    format: json
+    list: true
+    fields:
+      - name: imagen
+        label: Fotografía
+        type: image
+        required: true
+      - name: descripcion
+        label: Descripción
+        type: string
+      - name: pie
+        label: Pie de foto
+        type: string
