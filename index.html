@@ -254,7 +254,7 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
 </div>
 
 <footer>
-<div class="wrap">© 2026 VICARLO MG BARBER · Barbería en Burjassot · @vicarlomgbarber · vicarlomgbarber@gmail.com</div>
+<div class="wrap">© 2026 VICARLO MG BARBER · Barbería en Burjassot · @vicarlomgbarber · vicarlomgbarber@gmail.com <span aria-hidden="true">·</span> <a href="https://app.pagescms.org/" target="_blank" rel="noopener noreferrer" aria-label="Administración del sitio (requiere iniciar sesión en GitHub)" style="color:#a8a095;text-decoration:underline;text-underline-offset:3px">Administración</a></div>
 </footer>
 <script>
 /* VICARLO MG BARBER: contenido administrado en Pages CMS */
@@ -263,7 +263,7 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
    try {const res=await fetch('/'+file,{cache:'no-store'});return res.ok?await res.json():null;}catch(e){return null;}
  };
  const setText=(selector,value)=>{if(typeof value!=='string')return;const el=document.querySelector(selector);if(el)el.textContent=value;};
- const [services,content,pictures]=await Promise.all([get('servicios.json'),get('contenido.json'),get('fotografias.json')]);
+ const [services,content,pictures,appearance]=await Promise.all([get('servicios.json'),get('contenido.json'),get('fotografias.json'),get('apariencia.json')]);
  if(Array.isArray(services)){
   const container=document.querySelector('.service-list');
   if(container){
