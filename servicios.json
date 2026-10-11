@@ -1,0 +1,30 @@
+[
+  {
+    "nombre": "Corte caballero",
+    "precio": 15
+  },
+  {
+    "nombre": "Recorte de barba",
+    "precio": 10
+  },
+  {
+    "nombre": "Corte + barba",
+    "precio": 22
+  },
+  {
+    "nombre": "Perfilado de barba",
+    "precio": 12
+  },
+  {
+    "nombre": "Corte infantil",
+    "precio": 13
+  },
+  {
+    "nombre": "Ritual de barba con toalla caliente",
+    "precio": 15
+  },
+  {
+    "nombre": "Rapado",
+    "precio": 12
+  }
+]
