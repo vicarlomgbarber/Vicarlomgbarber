@@ -1,0 +1,22 @@
+{
+  "color_fondo": "#090909",
+  "color_panel": "#151515",
+  "color_texto": "#f6f3ec",
+  "color_dorado": "#d4af68",
+  "color_dorado_claro": "#f0d28d",
+  "logotipo": "/media/imagen-6fe2a690f2c9.png",
+  "foto_portada": "/media/imagen-7e18fea9bcc8.png",
+  "texto_boton_reserva": "Reservar cita",
+  "texto_boton_galeria": "Conocer la barbería",
+  "texto_boton_mapa": "Abrir en Google Maps",
+  "titulo_seo": "VICARLO MG BARBER | Barbería premium en Burjassot",
+  "descripcion_seo": "VICARLO MG BARBER, barbería premium en Burjassot. Cortes, degradados, barba y estilo masculino. Reserva online en Booksy.",
+  "mostrar_identidad": true,
+  "mostrar_servicios": true,
+  "mostrar_galeria": true,
+  "mostrar_contacto": true,
+  "orden_identidad": 1,
+  "orden_servicios": 2,
+  "orden_galeria": 3,
+  "orden_contacto": 4
+}

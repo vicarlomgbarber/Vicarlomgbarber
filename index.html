@@ -46,6 +46,7 @@ h1{font-size:clamp(46px,7vw,90px);line-height:.94;margin:14px 0 18px;letter-spac
 .tcard{background:linear-gradient(180deg,#181818,#121212);border:1px solid #2a2a2a;border-radius:18px;padding:20px;box-shadow:0 14px 40px rgba(0,0,0,.22)}
 .tcard small{display:block;text-transform:uppercase;letter-spacing:.12em;color:#8f887d;font-size:11px;margin-bottom:7px}
 .tcard strong{font-size:15px}
+section[hidden]{display:none!important}
 section{padding:84px 0;border-top:1px solid rgba(255,255,255,.06)}
 .kicker{color:var(--gold2);font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:12px}
 h2{font-size:clamp(34px,4.5vw,58px);line-height:1.05;margin:10px 0 16px;letter-spacing:-.025em}
@@ -153,7 +154,7 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
 </div>
 </div>
 
-<section>
+<section id="identidad">
 <div class="wrap">
 <div class="kicker">VICARLO MG BARBER</div>
 <h2>Una barbería con identidad propia</h2>
@@ -312,6 +313,61 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
    if(fragment.childNodes.length)grid.replaceChildren(fragment);
   }
  }
+
+  // Opciones visuales configurables desde Pages CMS; el diseño original es el valor predeterminado.
+  if(appearance && typeof appearance==='object' && !Array.isArray(appearance)){
+    const root=document.documentElement;
+    const color=(v)=>typeof v==='string' && /^#[0-9a-fA-F]{6}$/.test(v) ? v : null;
+    const colors={'color_fondo':'--bg','color_panel':'--panel','color_texto':'--text','color_dorado':'--gold','color_dorado_claro':'--gold2'};
+    for(const [key,variable] of Object.entries(colors)){
+      const value=color(appearance[key]); if(value)root.style.setProperty(variable,value);
+    }
+    const image=(v)=>typeof v==='string' && /^\/(?:media|assets)\/[a-zA-Z0-9._\/-]+$/.test(v) ? v : null;
+    if(image(appearance.logotipo)){
+      document.querySelectorAll('.brand img, #identidad .card img').forEach(el=>{el.src=appearance.logotipo;});
+    }
+    if(image(appearance.foto_portada)){
+      const hero=document.querySelector('.hero');
+      if(hero)hero.style.backgroundImage='linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.78)),url("'+appearance.foto_portada+'")';
+    }
+    if(typeof appearance.texto_boton_reserva==='string' && appearance.texto_boton_reserva.trim()){
+      document.querySelectorAll('a[href*="booksy.com"]').forEach(a=>{
+        if(a.classList.contains('btn'))a.textContent=appearance.texto_boton_reserva;
+      });
+    }
+    if(typeof appearance.texto_boton_galeria==='string' && appearance.texto_boton_galeria.trim()){
+      const a=document.querySelector('.hero .btn.dark');if(a)a.textContent=appearance.texto_boton_galeria;
+    }
+    if(typeof appearance.texto_boton_mapa==='string' && appearance.texto_boton_mapa.trim()){
+      const a=document.querySelector('#contacto a[href*="google.com/maps"]');if(a)a.textContent=appearance.texto_boton_mapa;
+    }
+    if(typeof appearance.titulo_seo==='string' && appearance.titulo_seo.trim()){
+      document.title=appearance.titulo_seo;
+    }
+    if(typeof appearance.descripcion_seo==='string' && appearance.descripcion_seo.trim()){
+      const m=document.querySelector('meta[name="description"]');if(m)m.content=appearance.descripcion_seo;
+    }
+    const sectionKeys=['identidad','servicios','galeria','contacto'];
+    // Reordena solamente las secciones editables, conservando intactas portada y datos esenciales.
+    const main=document.querySelector('main');
+    if(main){
+      const sections=sectionKeys.map((id,i)=>({id,index:i,node:document.getElementById(id)}));
+      for(const s of sections){
+        if(!s.node)continue;
+        if(appearance['mostrar_'+s.id]===false){s.node.hidden=true;}
+        const nav=document.querySelector('.links a[href="#'+s.id+'"]');
+        if(nav && s.node.hidden)nav.hidden=true;
+      }
+      const ordered=sections.filter(s=>s.node).sort((a,b)=>{
+        const na=Number(appearance['orden_'+a.id]);
+        const nb=Number(appearance['orden_'+b.id]);
+        const va=Number.isInteger(na)&&na>=1&&na<=4?na:a.index+1;
+        const vb=Number.isInteger(nb)&&nb>=1&&nb<=4?nb:b.index+1;
+        return va-vb || a.index-b.index;
+      });
+      for(const s of ordered)main.appendChild(s.node);
+    }
+  }
 })();
 </script>
 </body>

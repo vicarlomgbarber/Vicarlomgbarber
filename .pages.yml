@@ -48,11 +48,12 @@ content:
       - name: anuncio
         label: Aviso o promoción
         type: text
+        description: Déjalo vacío para no mostrar ningún anuncio
       - name: horarios
-        label: Horarios
+        label: Horarios (texto)
         type: text
       - name: booksy
-        label: Enlace de Booksy
+        label: Enlace de reservas Booksy
         type: string
       - name: instagram
         label: Enlace de Instagram
@@ -69,8 +70,74 @@ content:
         type: image
         required: true
       - name: descripcion
-        label: Descripción
+        label: Descripción de la fotografía
         type: string
       - name: pie
-        label: Pie de foto
+        label: Texto debajo de la fotografía
         type: string
+  - name: apariencia
+    label: Diseño y configuración
+    type: file
+    path: apariencia.json
+    format: json
+    fields:
+      - name: color_fondo
+        label: Color de fondo (ej. #090909)
+        type: string
+      - name: color_panel
+        label: Color de tarjetas
+        type: string
+      - name: color_texto
+        label: Color del texto
+        type: string
+      - name: color_dorado
+        label: Color principal de acento
+        type: string
+      - name: color_dorado_claro
+        label: Color claro del acento
+        type: string
+      - name: logotipo
+        label: Logotipo
+        type: image
+      - name: foto_portada
+        label: Imagen grande de portada
+        type: image
+      - name: texto_boton_reserva
+        label: Texto botones de reservas
+        type: string
+      - name: texto_boton_galeria
+        label: Texto botón de galería
+        type: string
+      - name: texto_boton_mapa
+        label: Texto botón del mapa
+        type: string
+      - name: titulo_seo
+        label: Título para buscadores
+        type: string
+      - name: descripcion_seo
+        label: Descripción para buscadores
+        type: text
+      - name: mostrar_identidad
+        label: Mostrar sección Presentación
+        type: boolean
+      - name: orden_identidad
+        label: Orden sección Presentación (1-4)
+        type: number
+      - name: mostrar_servicios
+        label: Mostrar sección Servicios
+        type: boolean
+      - name: orden_servicios
+        label: Orden sección Servicios (1-4)
+        type: number
+      - name: mostrar_galeria
+        label: Mostrar sección Galería
+        type: boolean
+      - name: orden_galeria
+        label: Orden sección Galería (1-4)
+        type: number
+      - name: mostrar_contacto
+        label: Mostrar sección Contacto
+        type: boolean
+      - name: orden_contacto
+        label: Orden sección Contacto (1-4)
+        type: number
