@@ -5,7 +5,7 @@
   },
   {
     "nombre": "Recorte de barba",
-    "precio": 10
+    "precio": 7
   },
   {
     "nombre": "Corte + barba",
@@ -13,7 +13,7 @@
   },
   {
     "nombre": "Perfilado de barba",
-    "precio": 12
+    "precio": 10
   },
   {
     "nombre": "Corte infantil",
@@ -25,6 +25,6 @@
   },
   {
     "nombre": "Rapado",
-    "precio": 12
+    "precio": 10
   }
 ]
