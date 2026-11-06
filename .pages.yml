@@ -141,3 +141,28 @@ content:
       - name: orden_contacto
         label: Orden sección Contacto (1-4)
         type: number
+        
+  - name: videos
+    label: Vídeos de la barbería
+    type: file
+    path: videos.json
+    format: json
+    list: true
+    fields:
+      - name: titulo
+        label: Título del vídeo
+        type: string
+        required: true
+      - name: instagram
+        label: Enlace del reel de Instagram
+        type: string
+      - name: archivo
+        label: Subir vídeo desde ordenador
+        type: file
+        options:
+          categories: [video]
+          extensions: [mp4, webm]
+      - name: descripcion
+        label: Descripción del vídeo
+        type: text
+
