@@ -32,3 +32,10 @@ El código y base de datos pueden ser propios sin licencia mensual. Reservas 24/
 - Esta rama sirve de entorno de trabajo aislado.
 - No se ha creado base de datos en Supabase.
 - Backend independiente aún pendiente de implementar, configurar y probar.
+
+## Trabajo preparado en este chat
+- Se ha generado un paquete inicial autocontenido `VICARLO_SISTEMA_INDEPENDIENTE_PRUEBAS.zip` para utilizarlo en un servidor VPS futuro, con FastAPI, SQLite, panel, frontend y configuración Docker/Caddy.
+- Cinco pruebas automatizadas locales aprobadas, incluidas reservas concurrentes, bloqueo de horarios ocupados y acceso privado.
+- Código de pruebas NO desplegado en esta rama ni en producción todavía; el ZIP permanece como artefacto del chat, no como archivo del repositorio.
+- No existe contratación ni conexión a un servidor OVHcloud; requiere la actuación del titular para completar el alta y el pago.
+- Faltan funciones para operar en producción: fotografías desde panel, gestión completa de notificaciones, privacidad legal, copias externas y pruebas reales de infraestructura.
