@@ -126,17 +126,27 @@
       reproductor.src = archivo;
       reproductor.controls = true;
       reproductor.playsInline = true;
-      reproductor.preload = 'metadata';
+      reproductor.preload = 'none';
       marco.appendChild(reproductor);
     } else {
-      const iframe = document.createElement('iframe');
-      iframe.src =
-        `https://www.instagram.com/reel/${enlace[1]}/embed/`;
-      iframe.title = item.titulo || 'Video de VICARLO';
-      iframe.loading = 'lazy';
-      iframe.allow = 'encrypted-media; picture-in-picture';
-      iframe.setAttribute('allowfullscreen', '');
-      marco.appendChild(iframe);
+      const aviso = document.createElement('div');
+      aviso.style.cssText = 'display:grid;place-content:center;text-align:center;height:100%;padding:24px;gap:15px';
+      const mensaje = document.createElement('p');
+      mensaje.textContent = 'Al reproducir este vídeo se conecta con Instagram, que puede tratar datos y usar cookies.';
+      const activar = document.createElement('button');
+      activar.type = 'button';
+      activar.className = 'vicarlo-video-link';
+      activar.textContent = 'Aceptar y reproducir vídeo';
+      aviso.append(mensaje, activar);
+      marco.appendChild(aviso);
+      activar.addEventListener('click', () => {
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.instagram.com/reel/${enlace[1]}/embed/`;
+        iframe.title = item.titulo || 'Video de VICARLO';
+        iframe.allow = 'encrypted-media; picture-in-picture';
+        iframe.setAttribute('allowfullscreen', '');
+        marco.replaceChildren(iframe);
+      }, {once:true});
     }
 
     const info = document.createElement('div');
