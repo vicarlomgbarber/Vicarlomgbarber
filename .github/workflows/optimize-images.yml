@@ -1,0 +1,58 @@
+name: Optimize existing website photos
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/optimize-images.yml']
+permissions:
+  contents: write
+concurrency:
+  group: optimize-vicarlo-images
+  cancel-in-progress: false
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow==11.3.0
+      - name: Generate WebP copies without modifying originals
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          from PIL import Image, ImageOps
+          out = Path("media/optimized")
+          out.mkdir(parents=True, exist_ok=True)
+          appearance = json.loads(Path("apariencia.json").read_text())
+          gallery = json.loads(Path("fotografias.json").read_text())
+          sources = {appearance.get("foto_portada"), appearance.get("logotipo"), *(p.get("imagen") for p in gallery)}
+          sources.update(["/media/imagen-7e18fea9bcc8.png", "/media/imagen-6fe2a690f2c9.png", "/media/imagen-9b739fc514ee.jpg", "/media/imagen-48c54c8ea20e.jpg"])
+          manifest = {}
+          for source in sorted(s for s in sources if isinstance(s, str) and s.startswith("/media/")):
+              path = Path(source.lstrip("/"))
+              if not path.is_file() or path.suffix.lower() not in {".png", ".jpg", ".jpeg", ".webp"}:
+                  continue
+              with Image.open(path) as raw:
+                  im = ImageOps.exif_transpose(raw)
+                  im = im.convert("RGBA" if "A" in im.getbands() or "transparency" in im.info else "RGB")
+                  sizes = {}
+                  for width in (480, 960, 1600):
+                      copy = im.copy()
+                      copy.thumbnail((width, width * 2), Image.Resampling.LANCZOS)
+                      target = out / f"{path.stem}-{width}.webp"
+                      copy.save(target, "WEBP", quality=84, method=6)
+                      sizes[str(width)] = {"url": "/" + target.as_posix(), "width": copy.width, "height": copy.height, "bytes": target.stat().st_size}
+                  manifest[source] = {"original_bytes": path.stat().st_size, "variants": sizes}
+          Path("media/optimized/manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+      - name: Commit derived images only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add media/optimized
+          if ! git diff --cached --quiet; then
+            git commit -m "Generate optimized WebP copies of existing photographs"
+            git push origin HEAD:main
+          fi
