@@ -166,3 +166,103 @@ content:
         label: Descripción del vídeo
         type: text
 
+
+  - name: servicios_detalle
+    label: Páginas de servicios
+    type: file
+    path: servicios-detalle.json
+    format: json
+    fields:
+      - name: cortes
+        label: Cortes y degradados
+        type: object
+        fields:
+          - name: titulo
+            label: Título
+            type: string
+          - name: intro
+            label: Introducción
+            type: text
+          - name: seccion1_titulo
+            label: Título 1
+            type: string
+          - name: seccion1_texto
+            label: Texto 1
+            type: text
+          - name: seccion2_titulo
+            label: Título 2
+            type: string
+          - name: seccion2_texto
+            label: Texto 2
+            type: text
+          - name: seccion3_titulo
+            label: Título 3
+            type: string
+          - name: seccion3_texto
+            label: Texto 3
+            type: text
+          - name: consejo
+            label: Consejo
+            type: text
+      - name: barba
+        label: Cuidado de barba
+        type: object
+        fields:
+          - name: titulo
+            label: Título
+            type: string
+          - name: intro
+            label: Introducción
+            type: text
+          - name: seccion1_titulo
+            label: Título 1
+            type: string
+          - name: seccion1_texto
+            label: Texto 1
+            type: text
+          - name: seccion2_titulo
+            label: Título 2
+            type: string
+          - name: seccion2_texto
+            label: Texto 2
+            type: text
+          - name: seccion3_titulo
+            label: Título 3
+            type: string
+          - name: seccion3_texto
+            label: Texto 3
+            type: text
+          - name: consejo
+            label: Consejo
+            type: text
+      - name: infantil
+        label: Corte infantil
+        type: object
+        fields:
+          - name: titulo
+            label: Título
+            type: string
+          - name: intro
+            label: Introducción
+            type: text
+          - name: seccion1_titulo
+            label: Título 1
+            type: string
+          - name: seccion1_texto
+            label: Texto 1
+            type: text
+          - name: seccion2_titulo
+            label: Título 2
+            type: string
+          - name: seccion2_texto
+            label: Texto 2
+            type: text
+          - name: seccion3_titulo
+            label: Título 3
+            type: string
+          - name: seccion3_texto
+            label: Texto 3
+            type: text
+          - name: consejo
+            label: Consejo
+            type: text
