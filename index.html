@@ -237,6 +237,12 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
 </div>
 </section>
 
+<section id="opiniones">
+<div class="wrap"><div class="kicker">Opiniones de clientes</div>
+<h2>Conoce las experiencias de nuestros clientes</h2>
+<p class="sub">Consulta las opiniones y valoraciones publicadas en nuestro perfil de Booksy antes de reservar.</p>
+<a class="btn gold" href="https://booksy.com/es-es/191503_vicarlo-mg-barber_barberia_57393_burjassot" target="_blank" rel="noopener noreferrer">Consultar opiniones en Booksy</a>
+</div></section>
 <section id="contacto">
 <div class="wrap">
 <div class="kicker">Contacto</div>
@@ -349,7 +355,7 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
       });
     }
     if(typeof appearance.texto_boton_galeria==='string' && appearance.texto_boton_galeria.trim()){
-      const a=document.querySelector('.hero .btn.dark');if(a)a.textContent=appearance.texto_boton_galeria;
+      const a=document.querySelector('.hero a[href="#galeria"]');if(a)a.textContent=appearance.texto_boton_galeria;
     }
     if(typeof appearance.texto_boton_mapa==='string' && appearance.texto_boton_mapa.trim()){
       const a=document.querySelector('#contacto a[href*="google.com/maps"]');if(a)a.textContent=appearance.texto_boton_mapa;
@@ -378,6 +384,7 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
         return va-vb || a.index-b.index;
       });
       for(const s of ordered)main.appendChild(s.node);
+      const opiniones=document.getElementById('opiniones');const contacto=document.getElementById('contacto');if(opiniones&&contacto)contacto.before(opiniones);
     }
   }
 })();
