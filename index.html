@@ -152,7 +152,7 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
 <div class="actions">
 <a class="btn gold" href="https://booksy.com/es-es/191503_vicarlo-mg-barber_barberia_57393_burjassot" target="_blank" rel="noopener">Reservar en Booksy</a>
 <a class="btn dark" href="#galeria">Conocer la barbería</a>
-<a class="btn dark" href="https://wa.me/34631523925" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a class="btn dark" href="https://wa.me/34631523925?text=Hola%2C%20os%20escribo%20desde%20la%20web%20de%20VICARLO%20MG%20BARBER.%20Me%20gustar%C3%ADa%20consultar%20una%20cita." target="_blank" rel="noopener noreferrer">WhatsApp</a>
 </div>
 </div>
 </div>
@@ -246,6 +246,16 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
 <p class="sub">Consulta las opiniones y valoraciones publicadas en nuestro perfil de Booksy antes de reservar.</p>
 <a class="btn gold" href="https://booksy.com/es-es/191503_vicarlo-mg-barber_barberia_57393_burjassot" target="_blank" rel="noopener noreferrer">Consultar opiniones en Booksy</a>
 </div></section>
+<section id="preguntas">
+<div class="wrap">
+<div class="kicker">Antes de venir</div>
+<h2>Preguntas frecuentes</h2>
+<div class="grid2">
+<div class="feature"><h3>¿El degradado (fade) está incluido en el corte de caballero?</h3><p>Sí. Puedes solicitar un degradado como parte del corte de caballero, sin reservar un servicio independiente. Consulta la tarifa vigente en <a href="#servicios" style="color:var(--gold2);text-decoration:underline">nuestros servicios y precios</a>.</p></div>
+<div class="feature"><h3>¿Cómo puedo elegir mi cita?</h3><p>Abre nuestro perfil de <a href="https://booksy.com/es-es/191503_vicarlo-mg-barber_barberia_57393_burjassot" target="_blank" rel="noopener noreferrer" style="color:var(--gold2);text-decoration:underline">Booksy</a> para consultar los servicios y los horarios disponibles. Si tienes dudas, también puedes escribirnos por WhatsApp.</p></div>
+</div>
+</div>
+</section>
 <section id="contacto">
 <div class="wrap">
 <div class="kicker">Contacto</div>
@@ -256,7 +266,7 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
 <div class="card">
 <div class="contact-list">
 <div class="item"><small>Dirección</small><strong>C/ de Manuel Dualde, 2, 46100 Burjassot, Valencia</strong><br><a style="color:var(--gold2)" href="https://www.google.com/maps/search/?api=1&query=C%2F+de+Manuel+Dualde%2C+2%2C+46100+Burjassot%2C+Valencia" target="_blank" rel="noopener">Abrir en Google Maps</a></div>
-<div class="item"><small>Teléfono y WhatsApp</small><strong>+34 631 523 925</strong><br><a style="color:var(--gold2)" href="tel:+34631523925">Llamar a la barbería</a><br><a style="color:var(--gold2)" href="https://wa.me/34631523925" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div>
+<div class="item"><small>Teléfono y WhatsApp</small><strong>+34 631 523 925</strong><br><a style="color:var(--gold2)" href="tel:+34631523925">Llamar a la barbería</a><br><a style="color:var(--gold2)" href="https://wa.me/34631523925?text=Hola%2C%20os%20escribo%20desde%20la%20web%20de%20VICARLO%20MG%20BARBER.%20Me%20gustar%C3%ADa%20consultar%20una%20cita." target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div>
 <div class="item"><small>Instagram</small><strong>@vicarlomgbarber</strong><br><a style="color:var(--gold2)" href="https://www.instagram.com/vicarlomgbarber/" target="_blank" rel="noopener">Ver Instagram</a></div>
 <div class="item"><small>Correo</small><strong>vicarlomgbarber@gmail.com</strong><br><a style="color:var(--gold2)" href="mailto:vicarlomgbarber@gmail.com">Enviar correo</a></div>
 </div>
@@ -397,7 +407,7 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
         return va-vb || a.index-b.index;
       });
       for(const s of ordered)main.appendChild(s.node);
-      const opiniones=document.getElementById('opiniones');const contacto=document.getElementById('contacto');if(opiniones&&contacto)contacto.before(opiniones);
+      const opiniones=document.getElementById('opiniones');const contacto=document.getElementById('contacto');if(opiniones&&contacto)contacto.before(opiniones);const preguntas=document.getElementById('preguntas');if(preguntas&&contacto){contacto.before(preguntas);const servicios=document.getElementById('servicios');preguntas.hidden=!!(servicios&&servicios.hidden);}
     }
   }
 })();
