@@ -235,6 +235,7 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
 <div class="wrap">
 <div class="kicker">Contacto</div>
 <h2>Encuéntranos y reserva</h2>
+<p id="horario-local" style="margin:20px 0;color:#d4af68">Horario: Lunes a sábado, de 10:00 a 21:00.</p>
 <p class="sub">Todo en un solo sitio, sin confundir al cliente: dirección, Instagram, correo y reserva online.</p>
 <div class="contact">
 <div class="card">
@@ -304,7 +305,7 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
   }
   if(typeof content.horarios==='string'&&content.horarios.trim()){
    const contact=document.querySelector('#contacto .wrap');
-   if(contact){const hours=document.createElement('p');hours.textContent='Horario: '+content.horarios;hours.style.cssText='margin:20px 0;color:#d4af68';contact.appendChild(hours);}
+   if(contact){let hours=document.getElementById('horario-local');if(!hours){hours=document.createElement('p');hours.id='horario-local';hours.style.cssText='margin:20px 0;color:#d4af68';contact.appendChild(hours);}hours.textContent='Horario: '+content.horarios;}
   }
  }
  if(Array.isArray(pictures)){
