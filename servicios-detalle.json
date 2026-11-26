@@ -11,14 +11,14 @@
     "consejo": "Al reservar en Booksy, selecciona el servicio que corresponda. Si tienes dudas entre un rapado y un corte de caballero, pregúntanos por WhatsApp."
   },
   "barba": {
-    "titulo": "Arreglo y perfilado de barba en Burjassot",
-    "intro": "Una barba bien cuidada completa tu imagen. Ofrecemos recorte, perfilado y ritual de barba con toalla caliente, además de un servicio combinado de corte de pelo y barba.",
+    "titulo": "Arreglo de barba en Burjassot",
+    "intro": "Una barba bien cuidada completa tu imagen. Ofrecemos recorte y ritual de barba con toalla caliente, además de un servicio combinado de corte de pelo y barba.",
     "seccion1_titulo": "Recorte de barba",
     "seccion1_texto": "Es la opción para ajustar la longitud y dar forma a la barba. Explica al barbero si prefieres conservar volumen o llevarla más corta.",
-    "seccion2_titulo": "Perfilado de barba",
-    "seccion2_texto": "Si tu prioridad es definir los contornos de la barba, consulta el servicio de perfilado. Indica qué forma quieres mantener en mejillas y cuello.",
+    "seccion2_titulo": "Corte + barba",
+    "seccion2_texto": "Si quieres renovar tu corte y arreglar tu barba en la misma visita, elige el servicio combinado de corte + barba.",
     "seccion3_titulo": "Ritual de barba con toalla caliente",
-    "seccion3_texto": "Para una experiencia diferente, contamos con el ritual de barba con toalla caliente. También puedes elegir corte + barba si necesitas ambos servicios.",
+    "seccion3_texto": "Para una experiencia diferente, contamos con el ritual de barba con toalla caliente. Consulta la disponibilidad antes de venir.",
     "consejo": "Si no tienes claro qué modalidad elegir, consúltanos antes de reservar para escoger el servicio adecuado."
   },
   "infantil": {
