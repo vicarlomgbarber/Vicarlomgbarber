@@ -401,7 +401,7 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
     }
     if(typeof appearance.texto_boton_reserva==='string' && appearance.texto_boton_reserva.trim()){
       document.querySelectorAll('a[href*="booksy.com"]').forEach(a=>{
-        if(a.classList.contains('btn'))a.textContent=appearance.texto_boton_reserva;
+        if(a.classList.contains('btn') && !a.closest('#opiniones'))a.textContent=appearance.texto_boton_reserva;
       });
     }
     if(typeof appearance.texto_boton_galeria==='string' && appearance.texto_boton_galeria.trim()){
