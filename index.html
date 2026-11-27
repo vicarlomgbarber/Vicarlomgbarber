@@ -96,6 +96,15 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
 
 .mobile-nav{display:none}.mobile-nav summary{cursor:pointer;color:var(--gold2);font-weight:700;padding:12px 0}.mobile-nav a{display:inline-block;padding:10px 12px}.mobile-nav[open]{padding-bottom:8px}section[id]{scroll-margin-top:90px}a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid var(--gold2);outline-offset:4px}.photo-card img{height:auto;aspect-ratio:4/3;object-fit:cover}.services .grid3{grid-template-columns:1fr}.links a[hidden],.mobile-nav a[hidden]{display:none!important}@media(max-width:960px){.mobile-nav{display:block}.brand{min-width:0}.links .btn{white-space:nowrap;padding:0 12px}}@media(max-width:400px){.brand span{font-size:11px;letter-spacing:0}.brand img{width:34px;height:34px}nav{gap:8px}.links .btn{font-size:12px}}
 @media(max-width:700px){.hero{--hero-photo:url('/media/optimized/imagen-7e18fea9bcc8-960.webp')}}
+/* Prevent narrow-screen overflow and respect device safe areas. */
+.tcard,.card,.feature,.photo-card,.item,.service-list,.services>*,.gallery>*{min-width:0}
+.tcard strong,.item strong,.item a,.service b,.feature p{overflow-wrap:anywhere}
+.service span{flex-shrink:0;white-space:nowrap}
+a[hidden]{display:none!important}
+.skip-link{position:fixed;top:10px;left:10px;z-index:100;transform:translateY(-200%);background:var(--gold2);color:#12100c;padding:12px 18px;border-radius:8px;font-weight:700}
+.skip-link:focus{transform:none}
+@media(max-width:700px){.sticky-book{bottom:calc(14px + env(safe-area-inset-bottom,0px))}body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.btn:hover{transform:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -146,9 +155,10 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
 </script>
 </head>
 <body>
+<a class="skip-link" href="#inicio">Saltar al contenido</a>
 <header>
 <div class="wrap">
-<nav>
+<nav aria-label="Navegación principal">
 <a class="brand" href="#inicio">
 <img src="/media/optimized/imagen-6fe2a690f2c9-480.webp" width="480" height="480" decoding="async" alt="Logo VICARLO MG BARBER">
 <span>VICARLO MG BARBER</span>
@@ -164,7 +174,7 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
 </div>
 </header>
 
-<main id="inicio">
+<main id="inicio" tabindex="-1">
 <section class="hero">
 <div class="wrap">
 <div class="hero-inner">
@@ -424,7 +434,7 @@ footer{padding:34px 0;color:#8d867c;font-size:14px;border-top:1px solid #242424}
       for(const s of sections){
         if(!s.node)continue;
         if(appearance['mostrar_'+s.id]===false){s.node.hidden=true;}
-        document.querySelectorAll('.links a[href="#'+s.id+'"], .mobile-nav a[href="#'+s.id+'"]').forEach(nav=>{nav.hidden=s.node.hidden;});
+        document.querySelectorAll('a[href="#'+s.id+'"]').forEach(link=>{link.hidden=s.node.hidden;});
       }
       const ordered=sections.filter(s=>s.node).sort((a,b)=>{
         const na=Number(appearance['orden_'+a.id]);
